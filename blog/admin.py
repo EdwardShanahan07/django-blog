@@ -13,7 +13,6 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content')
 
 
-
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'body', 'post', 'created_on', 'approved')
@@ -22,5 +21,4 @@ class CommentAdmin(admin.ModelAdmin):
     actions = ['approve_comments']
 
     def approve_comments(self, request, querySet):
-        querySet.update(approve=True)
-
+        querySet.update(approved=True)
